@@ -18,7 +18,7 @@ export default class VueSSRClientPlugin {
     onEmit(compiler, 'vue-client-plugin', stage, (compilation, cb) => {
       const stats = compilation.getStats().toJson()
 
-      const allFiles = uniq(stats.assets.map(a => a.name))
+      const allFiles = uniq(stats.assets.map(a => a.name as string))
 
       const initialFiles = uniq(
         Object.keys(stats.entrypoints)

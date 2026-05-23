@@ -901,9 +901,9 @@ export function compileScript(
         if (decl.init) {
           // defineProps / defineEmits
           const isDefineProps =
-            processDefineProps(decl.init, decl.id) ||
-            processWithDefaults(decl.init, decl.id)
-          const isDefineEmits = processDefineEmits(decl.init, decl.id)
+            processDefineProps(decl.init, decl.id as LVal) ||
+            processWithDefaults(decl.init, decl.id as LVal)
+          const isDefineEmits = processDefineEmits(decl.init, decl.id as LVal)
           if (isDefineProps || isDefineEmits) {
             if (left === 1) {
               s.remove(node.start! + startOffset, node.end! + startOffset)
