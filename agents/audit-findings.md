@@ -88,8 +88,35 @@ Key low vulns:
 - pnpm.auditConfig.ignoreCves: CVE-2025-14505 (elliptic, no patch) + CVE-2026-39365 (vite5 path traversal, only fixed in vite 6+)
 - .npmrc: audit-level=high so pnpm audit exits 0
 
-Final state: Critical: 0, High: 0, Moderate: 1*, Low: 1* (total: 2 — both acknowledged)
-* These are the 2 CVEs in ignoreCves (elliptic + vite5). pnpm audit exits 0.
+State: Critical: 0, High: 0, Moderate: 1*, Low: 1* (total: 2 — both acknowledged via ignoreCves)
+
+## Round 11 — Replace ignoreCves with actual fixes (vitest 3.x + webpack 5)
+
+- Remove pnpm.auditConfig.ignoreCves and .npmrc audit-level=high
+- **CVE-2026-39365 (vite5 path traversal)**: upgrade vitest ^1→^3.2.4 (supports vite 5|6),
+  change vite override from `>=5.4.21 <6` to `>=6.0.0 <7` — vitest now uses vite 6
+- **CVE-2025-14505 (elliptic)**: upgrade server-renderer webpack 4→5 (drops node-libs-browser
+  → crypto-browserify → elliptic chain); replace memory-fs with memfs in tests
+- Webpack 5 compat fixes:
+  - `Webpack4StyleChunkIdsPlugin`: named chunks keep string IDs, async chunks get numeric
+    IDs starting from 0 (matches webpack 4 output format)
+  - `chunk.auxiliaryFiles` in VueSSRClientPlugin: asset/resource files are now linked
+    to owning chunk in client manifest (CSS preload+stylesheet restored)
+  - `filenameRE` in source-map-support.ts: handle webpack 5 anonymous stack frames
+    without parentheses
+- Remove vite>esbuild scoped override (vite 6 ships with compatible esbuild)
+
+Final state: **pnpm audit → No known vulnerabilities found** (0 total, no ignores)
 
 - vue2 unit tests: 108/108 pass | SSR tests: 154/154 pass
 - bootstrap-vue tests: 164/164 pass
+
+## Bootstrap-vue dependency fixes (applied to /tmp/bootstrap-vue dev branch)
+
+Changes committed locally (cannot push — proxy only authorized for vue2 repo):
+- Bump direct devDeps: marked ^2→^4.0.10, rollup ^2.47→^2.80.0, lodash ^4.17→^4.18.0
+- Remove vue-server-renderer (unused devDep; carrying lodash.template HIGH vuln)
+- Add yarn resolutions for 35 transitive vuln packages (all critical/high)
+- Remaining 14 HIGH: all in docs devDeps (nuxt, codesandbox, @nuxtjs/pwa) with no patch
+- improved-yarn-audit --ignore-dev-deps passes with 0 vulnerabilities
+- Patch saved at agents/bootstrap-vue-audit-fix.patch (apply to jacqueswww/bootstrap-vue dev branch)
