@@ -1,6 +1,6 @@
 const SourceMapConsumer = require('source-map').SourceMapConsumer
 
-const filenameRE = /\(([^)]+\.js):(\d+):(\d+)\)$/
+const filenameRE = /\(?([^()\s]+\.js):(\d+):(\d+)\)?$/
 
 export function createSourceMapConsumers(rawMaps: Object) {
   const maps = {}
