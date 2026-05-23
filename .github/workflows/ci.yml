@@ -42,8 +42,11 @@ jobs:
 
       - run: pnpm install
 
+      - name: Build SSR
+        run: npm run build:ssr
+
       - name: Run SSR tests
-        run: pnpm run test:ssr
+        run: pnpm exec vitest run server-renderer
 
       - name: Run compiler-sfc tests
         run: pnpm run test:sfc
@@ -64,8 +67,11 @@ jobs:
 
       - run: pnpm install
 
+      - name: Build full-prod and server-renderer-basic
+        run: npm run build -- full-prod,server-renderer-basic
+
       - name: Run e2e tests
-        run: pnpm run test:e2e
+        run: pnpm exec vitest run test/e2e
 
       - name: Run transition tests
         run: pnpm run test:transition
@@ -86,11 +92,14 @@ jobs:
 
       - run: pnpm install
 
-      - name: Run srouce type check
+      - name: TypeScript source check
         run: pnpm run ts-check
 
+      - name: Build types
+        run: npm run build:types
+
       - name: Run type declaration tests
-        run: pnpm run test:types
+        run: tsc -p ./types/tsconfig.json
 
   security:
     runs-on: ubuntu-latest
