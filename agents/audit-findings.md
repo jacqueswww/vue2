@@ -72,7 +72,9 @@ Key low vulns:
 - vue2 unit tests: pass | bootstrap-vue: 164/164 pass
 
 ## Round 8 — MODERATE: overrides batch (micromatch, bn.js, qs, ajv, vite, etc.)
-*(pending)*
+- Critical: 0, High: 1, Moderate: 7, Low: 4 (total: 12) ✓
+- Note: vite constrained to ">=5.4.21 <6" to stay compatible with vitest@1.6.1
+- vue2 unit tests: pass | bootstrap-vue: 164/164 pass
 
 ## Round 9 — LOW: overrides batch (tmp, diff, @tootallnate/once)
 *(pending)*

@@ -113,7 +113,16 @@
       "picomatch": ">=2.3.2",
       "ws": ">=8.20.1",
       "immutable": ">=5.1.5",
-      "vite>rollup": ">=4.59.0"
+      "vite>rollup": ">=4.59.0",
+      "micromatch": ">=4.0.8",
+      "bn.js": ">=5.2.3",
+      "brace-expansion": ">=1.1.13",
+      "qs": ">=6.15.2",
+      "ajv": ">=6.14.0",
+      "follow-redirects": ">=1.16.0",
+      "yaml": ">=1.10.3",
+      "uuid": ">=11.1.1",
+      "vite": ">=5.4.21 <6"
     }
   },
   "devDependencies": {
