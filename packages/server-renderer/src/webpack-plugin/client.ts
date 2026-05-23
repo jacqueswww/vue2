@@ -1,5 +1,5 @@
 const hash = require('hash-sum')
-const uniq = require('lodash.uniq')
+const uniq = <T>(arr: T[]): T[] => [...new Set(arr)]
 import { isJS, isCSS, getAssetName, onEmit, stripModuleIdHash } from './util'
 
 export default class VueSSRClientPlugin {
@@ -53,8 +53,13 @@ export default class VueSSRClientPlugin {
             return
           }
           const id = stripModuleIdHash(m.identifier)
+          // webpack 5: asset/resource files land in auxiliaryFiles, not files
+          const chunkAllFiles = [
+            ...chunk.files,
+            ...((chunk as any).auxiliaryFiles || [])
+          ]
           const files = (manifest.modules[hash(id)] =
-            chunk.files.map(fileToIndex))
+            chunkAllFiles.map(fileToIndex).filter(i => i >= 0))
           // find all asset modules associated with the same chunk
           assetModules.forEach(m => {
             if (m.chunks.some(id => id === cid)) {
