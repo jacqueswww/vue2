@@ -16,8 +16,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: 'npm'
 
-      - run: npm install
+      - run: npm ci
 
       - name: Run unit tests
         run: npm run test:unit
@@ -31,8 +32,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: 'npm'
 
-      - run: npm install
+      - run: npm ci
 
       - name: Build SSR
         run: npm run build:ssr
@@ -52,8 +54,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: 'npm'
 
-      - run: npm install
+      - run: npm ci
 
       - name: Build full-prod and server-renderer-basic
         run: npm run build -- full-prod,server-renderer-basic
@@ -62,6 +65,8 @@ jobs:
         run: npx vitest run test/e2e
 
       - name: Run transition tests
+        env:
+          CHROME_BIN: google-chrome
         run: npm run test:transition
 
   type-test:
@@ -73,8 +78,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: 'npm'
 
-      - run: npm install
+      - run: npm ci
 
       - name: TypeScript source check
         run: npm run ts-check
@@ -94,8 +100,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: 'npm'
 
-      - run: npm install
+      - run: npm ci
 
       - name: Run CVE regression tests
         run: npm run test:unit -- test/unit/security
