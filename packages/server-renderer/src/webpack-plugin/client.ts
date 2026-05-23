@@ -18,7 +18,7 @@ export default class VueSSRClientPlugin {
     onEmit(compiler, 'vue-client-plugin', stage, (compilation, cb) => {
       const stats = compilation.getStats().toJson()
 
-      const allFiles = uniq(stats.assets.map(a => a.name))
+      const allFiles = uniq<string>(stats.assets.map(a => a.name))
 
       const initialFiles = uniq(
         Object.keys(stats.entrypoints)
@@ -58,8 +58,9 @@ export default class VueSSRClientPlugin {
             ...chunk.files,
             ...((chunk as any).auxiliaryFiles || [])
           ]
-          const files = (manifest.modules[hash(id)] =
-            chunkAllFiles.map(fileToIndex).filter(i => i >= 0))
+          const files = (manifest.modules[hash(id)] = chunkAllFiles
+            .map(fileToIndex)
+            .filter(i => i >= 0))
           // find all asset modules associated with the same chunk
           assetModules.forEach(m => {
             if (m.chunks.some(id => id === cid)) {
