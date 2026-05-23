@@ -140,7 +140,6 @@
     "karma-esbuild": "^2.2.5",
     "karma-jasmine": "^5.0.1",
     "lint-staged": "^12.5.0",
-    "lodash": "^4.17.21",
     "marked": "^4.0.16",
     "minimist": "^1.2.6",
     "postcss": "^8.4.14",

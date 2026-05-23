@@ -101,9 +101,6 @@ importers:
       lint-staged:
         specifier: ^12.5.0
         version: 12.5.0(enquirer@2.4.1)
-      lodash:
-        specifier: ^4.17.21
-        version: 4.17.21
       marked:
         specifier: ^4.0.16
         version: 4.3.0

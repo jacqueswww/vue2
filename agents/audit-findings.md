@@ -48,7 +48,12 @@ Key low vulns:
 - bootstrap-vue tests: 164/164 pass
 
 ## Round 4 — HIGH: remove lodash (no patch)
-*(pending)*
+- Critical: 0, High: 3, Moderate: 20, Low: 8 (total: 31) — unchanged
+- lodash had no usages in source/scripts; removed from devDeps cleanly
+- Remaining high: 2x lodash.template (server-renderer, Round 5) + 1x lodash
+  transitive via api-extractor (no patch — will ignore after Round 5)
+- vue2 unit tests: pass
+- bootstrap-vue tests: 164/164 pass
 
 ## Round 5 — HIGH: replace lodash.template in server-renderer (no patch)
 *(pending)*
