@@ -111,7 +111,7 @@
     "serialize-javascript": ">=7.0.5",
     "flatted": ">=3.4.2",
     "socket.io-parser": ">=4.2.6",
-    "picomatch": ">=2.3.2",
+    "picomatch": "2.3.1",
     "ws": ">=8.20.1",
     "immutable": ">=5.1.5",
     "micromatch": ">=4.0.8",
