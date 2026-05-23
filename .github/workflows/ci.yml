@@ -12,123 +12,93 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 8
-
       - name: Set node version to 22
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: 'pnpm'
 
-      - run: pnpm install
+      - run: npm install
 
       - name: Run unit tests
-        run: pnpm run test:unit
+        run: npm run test:unit
 
   ssr-sfc-test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 8
-
       - name: Set node version to 22
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: 'pnpm'
 
-      - run: pnpm install
+      - run: npm install
 
       - name: Build SSR
         run: npm run build:ssr
 
       - name: Run SSR tests
-        run: pnpm exec vitest run server-renderer
+        run: npx vitest run server-renderer
 
       - name: Run compiler-sfc tests
-        run: pnpm run test:sfc
+        run: npm run test:sfc
 
   e2e-test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 8
-
       - name: Set node version to 22
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: 'pnpm'
 
-      - run: pnpm install
+      - run: npm install
 
       - name: Build full-prod and server-renderer-basic
         run: npm run build -- full-prod,server-renderer-basic
 
       - name: Run e2e tests
-        run: pnpm exec vitest run test/e2e
+        run: npx vitest run test/e2e
 
       - name: Run transition tests
-        run: pnpm run test:transition
+        run: npm run test:transition
 
   type-test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 8
-
       - name: Set node version to 22
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: 'pnpm'
 
-      - run: pnpm install
+      - run: npm install
 
       - name: TypeScript source check
-        run: pnpm run ts-check
+        run: npm run ts-check
 
       - name: Build types
         run: npm run build:types
 
       - name: Run type declaration tests
-        run: tsc -p ./types/tsconfig.json
+        run: npx tsc -p ./types/tsconfig.json
 
   security:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 8
-
       - name: Set node version to 22
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: 'pnpm'
 
-      - run: pnpm install
+      - run: npm install
 
       - name: Run CVE regression tests
-        run: pnpm run test:unit -- test/unit/security
+        run: npm run test:unit -- test/unit/security
 
       - name: Audit dependencies (zero tolerance)
-        run: pnpm audit
+        run: npm audit
