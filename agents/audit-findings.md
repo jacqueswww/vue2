@@ -37,7 +37,9 @@ Key low vulns:
 - bootstrap-vue tests: 164 suites / 1694 tests — all pass
 
 ## Round 2 — HIGH: rollup bump to 2.80.x
-*(pending)*
+- Critical: 0, High: 23, Moderate: 26, Low: 9 (total: 58) ✓
+- vue2 unit tests: pass | build: pass
+- bootstrap-vue tests: 164/164 pass
 
 ## Round 3 — HIGH: overrides batch (braces, cross-spawn, tar-fs, minimatch, etc.)
 *(pending)*
