@@ -246,6 +246,7 @@ function genConfig(name) {
         // (+(|x) no longer matches empty string), so provide explicit patterns
         include: ['**/*.ts', '**/*.tsx'],
         exclude: ['**/*.d.ts'],
+        check: false,
         tsconfigOverride: {
           compilerOptions: {
             // if targeting browser, target es5
