@@ -13,7 +13,9 @@ export {
   unref,
   proxyRefs,
   customRef,
-  triggerRef,
+  triggerRef
+} from './reactivity/ref'
+export type {
   Ref,
   ToRef,
   ToRefs,
@@ -33,15 +35,15 @@ export {
   shallowReactive,
   markRaw,
   toRaw,
-  ReactiveFlags,
-  ShallowReactive,
-  UnwrapNestedRefs
+  ReactiveFlags
 } from './reactivity/reactive'
+export type { ShallowReactive, UnwrapNestedRefs } from './reactivity/reactive'
 
-export { readonly, shallowReadonly, DeepReadonly } from './reactivity/readonly'
+export { readonly, shallowReadonly } from './reactivity/readonly'
+export type { DeepReadonly } from './reactivity/readonly'
 
-export {
-  computed,
+export { computed } from './reactivity/computed'
+export type {
   ComputedRef,
   WritableComputedRef,
   WritableComputedOptions,
@@ -53,7 +55,9 @@ export {
   watch,
   watchEffect,
   watchPostEffect,
-  watchSyncEffect,
+  watchSyncEffect
+} from './apiWatch'
+export type {
   WatchEffect,
   WatchOptions,
   WatchOptionsBase,
@@ -69,11 +73,16 @@ export {
   getCurrentScope
 } from './reactivity/effectScope'
 
-export { DebuggerOptions, DebuggerEvent, DebuggerEventExtraInfo } from './debug'
+export type {
+  DebuggerOptions,
+  DebuggerEvent,
+  DebuggerEventExtraInfo
+} from './debug'
 
 export { TrackOpTypes, TriggerOpTypes } from './reactivity/operations'
 
-export { provide, inject, InjectionKey } from './apiInject'
+export { provide, inject } from './apiInject'
+export type { InjectionKey } from './apiInject'
 
 export { h } from './h'
 export { getCurrentInstance } from './currentInstance'

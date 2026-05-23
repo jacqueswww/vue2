@@ -4,9 +4,9 @@ import {
   isReadonly,
   isShallow,
   ReactiveFlags,
-  UnwrapNestedRefs
+  type UnwrapNestedRefs
 } from './reactive'
-import { isRef, Ref, RefFlag } from './ref'
+import { isRef, RefFlag, type Ref } from './ref'
 
 type Primitive = string | number | boolean | bigint | symbol | undefined | null
 type Builtin = Primitive | Function | Date | Error | RegExp

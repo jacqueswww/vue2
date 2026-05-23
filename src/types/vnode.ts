@@ -1,7 +1,7 @@
 import VNode from 'core/vdom/vnode'
-import { Ref } from 'v3'
-import { Component } from './component'
-import { ASTModifiers } from './compiler'
+import type { Ref } from 'v3'
+import type { Component } from './component'
+import type { ASTModifiers } from './compiler'
 
 /**
  * @internal

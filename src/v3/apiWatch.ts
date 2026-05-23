@@ -1,5 +1,5 @@
-import { isRef, Ref } from './reactivity/ref'
-import { ComputedRef } from './reactivity/computed'
+import { isRef, type Ref } from './reactivity/ref'
+import type { ComputedRef } from './reactivity/computed'
 import { isReactive, isShallow } from './reactivity/reactive'
 import {
   warn,
@@ -15,7 +15,7 @@ import { currentInstance } from './currentInstance'
 import { traverse } from 'core/observer/traverse'
 import Watcher from '../core/observer/watcher'
 import { queueWatcher } from '../core/observer/scheduler'
-import { DebuggerOptions } from './debug'
+import type { DebuggerOptions } from './debug'
 
 const WATCHER = `watcher`
 const WATCHER_CB = `${WATCHER} callback`
