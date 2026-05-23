@@ -8,19 +8,19 @@ describe('Transition w/ KeepAlive', () => {
   beforeEach(() => {
     one = {
       template: '<div>one</div>',
-      created: jasmine.createSpy(),
-      mounted: jasmine.createSpy(),
-      activated: jasmine.createSpy(),
-      deactivated: jasmine.createSpy(),
-      destroyed: jasmine.createSpy()
+      created: vi.fn(),
+      mounted: vi.fn(),
+      activated: vi.fn(),
+      deactivated: vi.fn(),
+      destroyed: vi.fn()
     }
     two = {
       template: '<div>two</div>',
-      created: jasmine.createSpy(),
-      mounted: jasmine.createSpy(),
-      activated: jasmine.createSpy(),
-      deactivated: jasmine.createSpy(),
-      destroyed: jasmine.createSpy()
+      created: vi.fn(),
+      mounted: vi.fn(),
+      activated: vi.fn(),
+      deactivated: vi.fn(),
+      destroyed: vi.fn()
     }
     components = {
       one,
@@ -32,11 +32,11 @@ describe('Transition w/ KeepAlive', () => {
 
   function assertHookCalls(component, callCounts) {
     expect([
-      component.created.calls.count(),
-      component.mounted.calls.count(),
-      component.activated.calls.count(),
-      component.deactivated.calls.count(),
-      component.destroyed.calls.count()
+      component.created.mock.calls.length,
+      component.mounted.mock.calls.length,
+      component.activated.mock.calls.length,
+      component.deactivated.mock.calls.length,
+      component.destroyed.mock.calls.length
     ]).toEqual(callCounts)
   }
 
@@ -514,7 +514,7 @@ describe('Transition w/ KeepAlive', () => {
   })
 
   it('async components with transition-mode out-in', done => {
-    const barResolve = jasmine.createSpy()
+    const barResolve = vi.fn()
     let next
     const foo = resolve => {
       setTimeout(() => {
@@ -590,7 +590,7 @@ describe('Transition w/ KeepAlive', () => {
         .then(() => {
           // foo afterLeave get called
           // and bar has already been resolved before afterLeave get called
-          expect(barResolve.calls.count()).toBe(1)
+          expect(barResolve.mock.calls.length).toBe(1)
           expect(vm.$el.innerHTML).toBe('<!---->')
         })
         .thenWaitFor(nextFrame)

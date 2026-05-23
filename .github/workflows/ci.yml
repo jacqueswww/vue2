@@ -58,6 +58,9 @@ jobs:
 
       - run: npm ci
 
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+
       - name: Build full-prod and server-renderer-basic
         run: npm run build -- full-prod,server-renderer-basic
 
@@ -65,8 +68,6 @@ jobs:
         run: npx vitest run test/e2e
 
       - name: Run transition tests
-        env:
-          CHROME_BIN: google-chrome
         run: npm run test:transition
 
   type-test:
