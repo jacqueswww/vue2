@@ -77,7 +77,8 @@ Key low vulns:
 - vue2 unit tests: pass | bootstrap-vue: 164/164 pass
 
 ## Round 9 — LOW: overrides batch (tmp, diff, @tootallnate/once)
-*(pending)*
+- Critical: 0, High: 1, Moderate: 7, Low: 1 (total: 9) ✓
+- vue2 unit tests: pass | bootstrap-vue: 164/164 pass
 
 ## Round 10 — LOW: acknowledge elliptic advisory 1112030 (no patch)
 *(pending)*
