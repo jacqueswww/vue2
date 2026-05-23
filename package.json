@@ -129,7 +129,7 @@
     "conventional-changelog-cli": "^2.2.2",
     "cross-spawn": "^7.0.3",
     "enquirer": "^2.3.6",
-    "esbuild": "^0.19.8",
+    "esbuild": "^0.25.0",
     "execa": "^4.1.0",
     "he": "^1.2.0",
     "jasmine-core": "^4.2.0",

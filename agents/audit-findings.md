@@ -64,7 +64,8 @@ Key low vulns:
 - bootstrap-vue tests: 164/164 pass
 
 ## Round 6 — MODERATE: esbuild bump to 0.25.x
-*(pending)*
+- Critical: 0, High: 1, Moderate: 19, Low: 8 (total: 28) ✓
+- vue2 unit tests: pass | bootstrap-vue: 164/164 pass
 
 ## Round 7 — MODERATE: postcss bump to 8.5.10
 *(pending)*
