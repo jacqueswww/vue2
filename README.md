@@ -1,4 +1,4 @@
-# @lastboy/vue2
+# @jacqueswww/vue2
 
 > Fork of [Vue 2.7.16](https://github.com/vuejs/vue/tree/v2.7.16) with patched CVE-2024-9506 (ReDoS vulnerability in `parseHTML`).
 

@@ -209,9 +209,9 @@ describe('Transition group', () => {
 
   it('events', done => {
     let next
-    const beforeEnterSpy = jasmine.createSpy()
-    const afterEnterSpy = jasmine.createSpy()
-    const afterLeaveSpy = jasmine.createSpy()
+    const beforeEnterSpy = vi.fn()
+    const afterEnterSpy = vi.fn()
+    const afterLeaveSpy = vi.fn()
     const vm = new Vue({
       template: `
           <div>
@@ -251,7 +251,7 @@ describe('Transition group', () => {
           `<div class="test v-enter v-enter-active">d</div>` +
           `</span>`
       )
-      expect(beforeEnterSpy.calls.count()).toBe(1)
+      expect(beforeEnterSpy.mock.calls.length).toBe(1)
     })
       .thenWaitFor(_next => {
         next = _next
@@ -265,7 +265,7 @@ describe('Transition group', () => {
             `<div class="test">d</div>` +
             `</span>`
         )
-        expect(afterEnterSpy.calls.count()).toBe(1)
+        expect(afterEnterSpy.mock.calls.length).toBe(1)
         vm.items.shift()
       })
       .thenWaitFor(_next => {
@@ -279,7 +279,7 @@ describe('Transition group', () => {
             `<div class="test">d</div>` +
             `</span>`
         )
-        expect(afterLeaveSpy.calls.count()).toBe(1)
+        expect(afterLeaveSpy.mock.calls.length).toBe(1)
       })
       .then(done)
   })

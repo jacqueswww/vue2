@@ -2,7 +2,7 @@
 
 > Fork of [vue-template-compiler@2.7.16](https://github.com/vuejs/vue/tree/v2.7.16) with patched [CVE-2024-9506](https://github.com/advisories/GHSA-5j4c-8p2g-v4jx), a ReDoS vulnerability in the `parseHTML` function.
 
-This package is automatically built alongside [@lastboy/vue2](https://github.com/lastboy/vue2) and provides a secure template compiler compatible with that runtime.
+This package is automatically built alongside [@jacqueswww/vue2](https://github.com/jacqueswww/vue2) and provides a secure template compiler compatible with that runtime.
 
 This fork is intended for teams that still rely on Vue 2 but need to meet strict security compliance standards. It is API-compatible with the original `vue-template-compiler` and can be used as a drop-in replacement.
 
@@ -55,7 +55,7 @@ npm install vue-template-compiler
 ```
 
 ``` js
-const compiler = require('@lastboy/vue2').version
+const compiler = require('@jacqueswww/vue2').version
 ```
 
 ## API

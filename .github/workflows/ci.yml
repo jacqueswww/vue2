@@ -10,106 +10,103 @@ jobs:
   unit-test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
-
-      - name: Set node version to 18
-        uses: actions/setup-node@v2
+      - name: Set node version to 22
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
-          cache: 'pnpm'
+          node-version: 22
+          cache: 'npm'
 
-      - run: pnpm install
+      - run: npm ci
 
       - name: Run unit tests
-        run: pnpm run test:unit
+        run: npm run test:unit
 
   ssr-sfc-test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
-
-      - name: Set node version to 18
-        uses: actions/setup-node@v2
+      - name: Set node version to 22
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
-          cache: 'pnpm'
+          node-version: 22
+          cache: 'npm'
 
-      - run: pnpm install
+      - run: npm ci
+
+      - name: Build SSR
+        run: npm run build:ssr
 
       - name: Run SSR tests
-        run: pnpm run test:ssr
+        run: npx vitest run server-renderer
 
       - name: Run compiler-sfc tests
-        run: pnpm run test:sfc
+        run: npm run test:sfc
 
   e2e-test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
-
-      - name: Set node version to 18
-        uses: actions/setup-node@v2
+      - name: Set node version to 22
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
-          cache: 'pnpm'
+          node-version: 22
+          cache: 'npm'
 
-      - run: pnpm install
+      - run: npm ci
+
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Build full-prod and server-renderer-basic
+        run: npm run build -- full-prod,server-renderer-basic
 
       - name: Run e2e tests
-        run: pnpm run test:e2e
+        run: npx vitest run test/e2e
 
       - name: Run transition tests
-        run: pnpm run test:transition
+        run: npm run test:transition
 
   type-test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
-
-      - name: Set node version to 18
-        uses: actions/setup-node@v2
+      - name: Set node version to 22
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
-          cache: 'pnpm'
+          node-version: 22
+          cache: 'npm'
 
-      - run: pnpm install
+      - run: npm ci
 
-      - name: Run srouce type check
-        run: pnpm run ts-check
+      - name: TypeScript source check
+        run: npm run ts-check
+
+      - name: Build types
+        run: npm run build:types
 
       - name: Run type declaration tests
-        run: pnpm run test:types
+        run: npx tsc -p ./types/tsconfig.json
 
   security:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
-
-      - name: Set node version to 18
-        uses: actions/setup-node@v2
+      - name: Set node version to 22
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
-          cache: 'pnpm'
+          node-version: 22
+          cache: 'npm'
 
-      - run: pnpm install
+      - run: npm ci
 
       - name: Run CVE regression tests
-        run: pnpm run test:unit -- test/unit/security
+        run: npm run test:unit -- test/unit/security
 
       - name: Audit dependencies (zero tolerance)
-        run: pnpm audit
+        run: npm audit
