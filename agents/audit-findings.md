@@ -68,7 +68,8 @@ Key low vulns:
 - vue2 unit tests: pass | bootstrap-vue: 164/164 pass
 
 ## Round 7 — MODERATE: postcss bump to 8.5.10
-*(pending)*
+- Critical: 0, High: 1, Moderate: 19, Low: 8 (total: 28) — same total (postcss transitive vuln already overridden)
+- vue2 unit tests: pass | bootstrap-vue: 164/164 pass
 
 ## Round 8 — MODERATE: overrides batch (micromatch, bn.js, qs, ajv, vite, etc.)
 *(pending)*

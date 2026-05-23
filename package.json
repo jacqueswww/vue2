@@ -142,7 +142,7 @@
     "lint-staged": "^12.5.0",
     "marked": "^4.0.16",
     "minimist": "^1.2.6",
-    "postcss": "^8.4.14",
+    "postcss": "^8.5.10",
     "prettier": "^2.6.2",
     "puppeteer": "^14.3.0",
     "rimraf": "^3.0.2",
