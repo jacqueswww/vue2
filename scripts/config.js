@@ -242,6 +242,8 @@ function genConfig(name) {
       ts({
         tsconfig: path.resolve(__dirname, '../', 'tsconfig.json'),
         cacheRoot: path.resolve(__dirname, '../', 'node_modules/.rts2_cache'),
+        include: ['**/*.ts', '**/*.tsx'],
+        check: false,
         tsconfigOverride: {
           compilerOptions: {
             // if targeting browser, target es5
