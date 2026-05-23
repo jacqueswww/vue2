@@ -1,5 +1,5 @@
 const chalk = require('chalk')
-const msgPath = process.env.GIT_PARAMS
+const msgPath = process.argv[2] || process.env.GIT_PARAMS
 const msg = require('fs').readFileSync(msgPath, 'utf-8').trim()
 
 const commitRE =

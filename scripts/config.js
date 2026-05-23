@@ -242,6 +242,10 @@ function genConfig(name) {
       ts({
         tsconfig: path.resolve(__dirname, '../', 'tsconfig.json'),
         cacheRoot: path.resolve(__dirname, '../', 'node_modules/.rts2_cache'),
+        // micromatch 4.x broke the rts2 default pattern '**/*.ts+(|x)'
+        // (+(|x) no longer matches empty string), so provide explicit patterns
+        include: ['**/*.ts', '**/*.tsx'],
+        exclude: ['**/*.d.ts'],
         tsconfigOverride: {
           compilerOptions: {
             // if targeting browser, target es5

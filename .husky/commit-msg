@@ -1,0 +1,2 @@
+#!/bin/sh
+node scripts/verify-commit-msg.js "$1"
