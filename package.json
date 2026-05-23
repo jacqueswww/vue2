@@ -106,6 +106,7 @@
     "form-data": ">=4.0.4",
     "handlebars": ">=4.7.9",
     "braces": ">=3.0.3",
+    "cross-spawn": ">=7.0.6",
     "tar-fs": ">=2.1.4",
     "minimatch": ">=3.1.4",
     "serialize-javascript": ">=7.0.5",
