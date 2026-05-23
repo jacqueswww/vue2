@@ -42,7 +42,10 @@ Key low vulns:
 - bootstrap-vue tests: 164/164 pass
 
 ## Round 3 — HIGH: overrides batch (braces, cross-spawn, tar-fs, minimatch, etc.)
-*(pending)*
+- Critical: 0, High: 3, Moderate: 20, Low: 8 (total: 31) ✓
+- Remaining high: lodash (no patch), lodash.template (no patch), +1 TBD
+- vue2 unit tests: pass
+- bootstrap-vue tests: 164/164 pass
 
 ## Round 4 — HIGH: remove lodash (no patch)
 *(pending)*
