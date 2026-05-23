@@ -29,7 +29,10 @@ function build (builds) {
       if (built < total) {
         next()
       }
-    }).catch(logError)
+    }).catch(err => {
+      logError(err)
+      process.exit(1)
+    })
   }
 
   next()
@@ -89,7 +92,7 @@ function getSize (code) {
 }
 
 function logError (e) {
-  console.log(e)
+  console.error(e)
 }
 
 function blue (str) {
