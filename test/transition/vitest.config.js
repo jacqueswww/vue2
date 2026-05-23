@@ -19,12 +19,13 @@ module.exports = defineConfig({
   },
   define: {
     __DEV__: true,
-    __TEST__: true
+    __TEST__: true,
+    'process.env.CI': JSON.stringify(process.env.CI || '')
   },
   test: {
     globals: true,
     include: ['test/transition/*.spec.ts'],
-    setupFiles: r('test/vitest.setup.ts'),
+    setupFiles: r('test/transition/vitest.setup.ts'),
     browser: {
       enabled: true,
       provider: 'playwright',
