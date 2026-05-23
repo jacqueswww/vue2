@@ -1,5 +1,5 @@
 const hash = require('hash-sum')
-const uniq = require('lodash.uniq')
+const uniq = <T>(arr: T[]): T[] => [...new Set(arr)]
 import { isJS, isCSS, getAssetName, onEmit, stripModuleIdHash } from './util'
 
 export default class VueSSRClientPlugin {

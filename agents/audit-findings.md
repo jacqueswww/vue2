@@ -56,7 +56,12 @@ Key low vulns:
 - bootstrap-vue tests: 164/164 pass
 
 ## Round 5 — HIGH: replace lodash.template in server-renderer (no patch)
-*(pending)*
+- Critical: 0, High: 1, Moderate: 20, Low: 8 (total: 29) ✓
+- Remaining high: lodash (transitive via api-extractor) — no 4.18.0 exists, will ignore advisory
+- lodash.template replaced with inline compile() using Function constructor + with(data) for expression support
+- lodash.uniq replaced with [...new Set(arr)]
+- vue2 unit tests: 108/108 pass | SSR tests: 154/154 pass
+- bootstrap-vue tests: 164/164 pass
 
 ## Round 6 — MODERATE: esbuild bump to 0.25.x
 *(pending)*
