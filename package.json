@@ -49,6 +49,7 @@
     "build:types": "rimraf temp && tsc --declaration --emitDeclarationOnly --outDir temp && api-extractor run && api-extractor run -c packages/compiler-sfc/api-extractor.json",
     "test": "npm run ts-check && npm run test:types && npm run test:unit && npm run test:e2e && npm run test:ssr && npm run test:sfc",
     "test:unit": "vitest run test/unit",
+    "test:security": "vitest run test/unit/security && pnpm audit",
     "test:ssr": "npm run build:ssr && vitest run server-renderer",
     "test:sfc": "vitest run compiler-sfc",
     "test:e2e": "npm run build -- full-prod,server-renderer-basic && vitest run test/e2e",
