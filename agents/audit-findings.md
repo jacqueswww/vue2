@@ -32,7 +32,9 @@ Key low vulns:
 ---
 
 ## Round 1 — CRITICAL overrides (pbkdf2, sha.js, form-data, handlebars)
-*(pending)*
+- Critical: 0, High: 24, Moderate: 26, Low: 9 (total: 59) ✓
+- vue2 unit tests: 108 files / 1449 tests — all pass
+- bootstrap-vue tests: 164 suites / 1694 tests — all pass
 
 ## Round 2 — HIGH: rollup bump to 2.80.x
 *(pending)*
