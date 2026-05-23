@@ -8,7 +8,7 @@
 
 This patch ensures compliance for security-conscious teams relying on Vue 2, and is intended to be used with the companion package:
 
-* [`@lastboy/vue2-template-compiler`](https://www.npmjs.com/package/@lastboy/vue2-template-compiler)
+* [`@jacqueswww/vue2-template-compiler`](https://www.npmjs.com/package/@jacqueswww/vue2-template-compiler)
 
 ## [2.7.16 Swan Song](https://github.com/vuejs/vue/compare/v2.7.16-beta.2...v2.7.16) (2023-12-24)
 

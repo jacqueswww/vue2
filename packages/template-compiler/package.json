@@ -1,5 +1,5 @@
 {
-  "name": "@lastboy/vue2-template-compiler",
+  "name": "@jacqueswww/vue2-template-compiler",
   "version": "6.4.5",
   "description": "Forked template compiler for Vue with CVE-2024-9506 patch",
   "main": "index.js",
@@ -13,7 +13,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/lastboy/vue2.git",
+    "url": "https://github.com/jacqueswww/vue2.git",
     "directory": "packages/vue-template-compiler"
   },
   "keywords": [
@@ -27,9 +27,9 @@
   "author": "Lastboy (forked from Evan You)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/lastboy/vue2/issues"
+    "url": "https://github.com/jacqueswww/vue2/issues"
   },
-  "homepage": "https://github.com/lastboy/vue2/tree/main/packages/vue-template-compiler#readme",
+  "homepage": "https://github.com/jacqueswww/vue2/tree/main/packages/vue-template-compiler#readme",
   "scripts": {
     "test:patch": "node test/patch-test/test-runner.js"
   },
