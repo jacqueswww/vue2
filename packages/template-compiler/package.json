@@ -1,6 +1,6 @@
 {
   "name": "@jacqueswww/vue2-template-compiler",
-  "version": "6.4.5",
+  "version": "2.7.16",
   "description": "Forked template compiler for Vue with CVE-2024-9506 patch",
   "main": "index.js",
   "unpkg": "browser.js",

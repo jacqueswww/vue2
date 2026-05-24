@@ -5,7 +5,9 @@ try {
 var packageName = require('./package.json').name
 var packageVersion = require('./package.json').version
 if (vueVersion && vueVersion !== packageVersion) {
-  var vuePath = require.resolve('vue')
+  var vuePath
+  try { vuePath = require.resolve('@jacqueswww/vue2') } catch (_) {}
+  if (!vuePath) { try { vuePath = require.resolve('vue') } catch (_) {} }
   var packagePath = require.resolve('./package.json')
   throw new Error(
     '\n\nVue packages version mismatch:\n\n' +
